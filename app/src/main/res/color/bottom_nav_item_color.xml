@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Color para el ítem seleccionado (oscuro para contrastar con el fondo claro) -->
+    <item android:state_checked="true" android:color="@color/gmy_primary" />
+    <!-- Color por defecto para los ítems no seleccionados -->
+    <item android:color="@color/white" />
+</selector>

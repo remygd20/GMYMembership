@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Inicio" />
+
+    <item
+        android:id="@+id/navigation_members"
+        android:icon="@drawable/ic_baseline_group_24"
+        android:title="Miembros" />
+
+    <item
+        android:id="@+id/navigation_calendar"
+        android:icon="@drawable/ic_baseline_date_range_24"
+        android:title="Calendario" />
+
+</menu>

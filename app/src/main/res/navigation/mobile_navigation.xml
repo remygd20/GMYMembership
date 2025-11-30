@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.remy.gmymembership.ui.dashboard.HomeFragment"
+        android:label="Inicio"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_settings"
+            app:destination="@id/navigation_settings" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_members"
+        android:name="com.remy.gmymembership.ui.dashboard.MembersFragment"
+        android:label="Miembros"
+        tools:layout="@layout/fragment_members">
+        <action
+            android:id="@+id/action_members_to_addMember"
+            app:destination="@id/navigation_add_member" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_calendar"
+        android:name="com.remy.gmymembership.ui.dashboard.CalendarFragment"
+        android:label="Calendario"
+        tools:layout="@layout/fragment_calendar" />
+
+    <fragment
+        android:id="@+id/navigation_add_member"
+        android:name="com.remy.gmymembership.ui.dashboard.AddMemberFragment"
+        android:label="Nuevo Miembro"
+        tools:layout="@layout/fragment_add_member" />
+
+    <fragment
+        android:id="@+id/navigation_edit_member"
+        android:name="com.remy.gmymembership.ui.dashboard.EditMemberFragment"
+        android:label="Editar Miembro"
+        tools:layout="@layout/fragment_edit_member" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.remy.gmymembership.ui.settings.SettingsFragment"
+        android:label="Configuración"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>

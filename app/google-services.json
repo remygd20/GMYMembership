@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "301093061002",
+    "project_id": "gmymembership-e97e0",
+    "storage_bucket": "gmymembership-e97e0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:301093061002:android:be755ede46b2ea0ef30873",
+        "android_client_info": {
+          "package_name": "com.remy.gmymembership"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBqf8Kt6f36ChwdyuAJl8q1bVOFTBcjro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
