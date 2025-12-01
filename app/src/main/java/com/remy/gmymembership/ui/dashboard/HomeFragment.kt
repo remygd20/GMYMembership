@@ -51,18 +51,14 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Navegación a Ajustes
         binding.settingsIcon.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_settings)
         }
 
-        // Hacer el mapa interactivo
         binding.mapCard.setOnClickListener { openGoogleMaps() }
 
-        // Cargar Estadísticas
         cargarEstadisticas()
 
-        // Cargar Mapa de Google Maps
         val mapFragment = childFragmentManager.findFragmentById(R.id.map_container) as SupportMapFragment?
         mapFragment?.getMapAsync(this)
     }
@@ -111,9 +107,8 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                 var vencidos = 0
                 var total = 0
 
-                val hoy = Calendar.getInstance()
+                val hoy = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
                 limpiarHora(hoy)
-                val diasDesdeEpochHoy = TimeUnit.DAYS.convert(hoy.timeInMillis, TimeUnit.MILLISECONDS)
 
                 for (doc in snapshots) {
                     val member = doc.toObject(Member::class.java)
@@ -126,12 +121,12 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                         fechaVenc.add(Calendar.DAY_OF_YEAR, member.planDurationDays)
                         limpiarHora(fechaVenc)
 
-                        val diasDesdeEpochVenc = TimeUnit.DAYS.convert(fechaVenc.timeInMillis, TimeUnit.MILLISECONDS)
-                        val diasRestantes = diasDesdeEpochVenc - diasDesdeEpochHoy
+                        val diffInMillis = fechaVenc.timeInMillis - hoy.timeInMillis
+                        val diasRestantes = TimeUnit.MILLISECONDS.toDays(diffInMillis)
 
                         when {
                             diasRestantes > 5 -> activos++
-                            diasRestantes in 0..5 -> porVencer++
+                            diasRestantes in 1..5 -> porVencer++
                             else -> vencidos++
                         }
                     }
