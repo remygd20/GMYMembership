@@ -106,11 +106,9 @@ class MembersFragment : Fragment() {
         val selectedTabPosition = binding.tabLayout.selectedTabPosition
 
         val tempFilteredList = fullMembersList.filter { member ->
-            // Filtro de Búsqueda (Nombre y Apellido)
             val fullName = "${member.firstName} ${member.lastName}".lowercase()
             val matchesSearch = fullName.contains(query)
 
-            // Filtro de Pestaña (Estado)
             val status = getMemberStatus(member)
             val matchesTab = when (selectedTabPosition) {
                 1 -> status == MemberStatus.ACTIVE
@@ -125,7 +123,6 @@ class MembersFragment : Fragment() {
         filteredMembersList.addAll(tempFilteredList.sortedBy { getRemainingDays(it) })
         memberAdapter.notifyDataSetChanged()
 
-        // Mostrar u ocultar mensaje de lista vacía
         binding.tvEmptyList.visibility = if (filteredMembersList.isEmpty()) View.VISIBLE else View.GONE
         binding.rvMembers.visibility = if (filteredMembersList.isEmpty()) View.GONE else View.VISIBLE
     }
